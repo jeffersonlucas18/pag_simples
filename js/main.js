@@ -1,6 +1,8 @@
 
+localStorage.clear();
 
-var pagina_atual = 1;
+var pagina_atual = 0;
+
 var botao_next = $('a.wizard-next')[0]; /* botão próximo*/
 var botao_back = $('a.wizard-back')[0]; /* botão anterior*/
 
@@ -16,7 +18,7 @@ var res_perguntas = document.getElementById('res_perguntas');
 var perguntas_semana = document.getElementById('perguntas_semana');
 
 
-var minutos_orcamento = document.getElementById('minutos_orcamento'); 
+var minutos_orcamento = document.getElementById('minutos_orcamento');
 var valor_perguntas_semana = document.getElementById('valor_perguntas_semana');
 
 
@@ -34,75 +36,96 @@ var perda_de_tempo_por_material = document.getElementById('perda_de_tempo_por_ma
 
 /* PRIMEIRA PÁGINA (login)*/
 nome.addEventListener("blur", function( lo ) {
-    localStorage.setItem('nome', lo.target.value)  
+    localStorage.setItem('nome', lo.target.value)
 })
 
 email.addEventListener("blur", function( lo ) {
-    localStorage.setItem('email', lo.target.value)  
+    localStorage.setItem('email', lo.target.value)
 })
 
 empresa.addEventListener("blur", function( lo ) {
-    localStorage.setItem('empresa', lo.target.value)  
+    localStorage.setItem('empresa', lo.target.value)
 })
 
 
 /* SEGUNDA PÁGINA */
 tempo_medio.addEventListener("blur", function( event ) {
-    localStorage.setItem('tempo_medio', event.target.value)  
+    localStorage.setItem('tempo_medio', event.target.value)
 })
 quantidade_orcamento.addEventListener("blur", function( event ) {
-    localStorage.setItem('quantidade_orcamento', event.target.value)  
+    localStorage.setItem('quantidade_orcamento', event.target.value)
 })
 perguntas_semana.addEventListener("blur", function( event ) {
-    localStorage.setItem('perguntas_semana', event.target.value)  
+    localStorage.setItem('perguntas_semana', event.target.value)
 })
 res_perguntas.addEventListener("blur", function( event ) {
-    localStorage.setItem('res_perguntas', event.target.value)  
+    localStorage.setItem('res_perguntas', event.target.value)
 })
 
 
 /* TERCEIRA PÁGINA */
 verificacao_por_minuto.addEventListener("blur", function( event ) {
-    localStorage.setItem('verificacao_por_minuto', event.target.value)  
+    localStorage.setItem('verificacao_por_minuto', event.target.value)
 })
 
 duracao_para_organizar.addEventListener("blur", function( event ) {
-    localStorage.setItem('duracao_para_organizar', event.target.value)  
+    localStorage.setItem('duracao_para_organizar', event.target.value)
 })
 
 
 /* QUARTA PÁGINA */
 quantidade_minutos.addEventListener("blur", function( event ) {
-    localStorage.setItem('quantidade_minutos', event.target.value)  
+    localStorage.setItem('quantidade_minutos', event.target.value)
 })
 
 /* QUINTA PÁGINA */
 organizar_minuto_contrato.addEventListener("blur", function( event ) {
-    localStorage.setItem('organizar_minuto_contrato', event.target.value)  
+    localStorage.setItem('organizar_minuto_contrato', event.target.value)
 })
 
 perda_de_tempo_por_material.addEventListener("blur", function( event ) {
-    localStorage.setItem('perda_de_tempo_por_material', event.target.value)  
+    localStorage.setItem('perda_de_tempo_por_material', event.target.value)
 })
 
 
 botao_next.addEventListener('click', function (e) {
-    
-    carregaOValorDosInputs();
-    
-    if (validaSeFormEstaPrenchido()){
-        localStorage.setItem('pagina_atual', ++pagina_atual);
-        
-        if(pagina_atual == 6){
-            mostrarResultdosNaTela();
-        }
-    }
+
+    /* PRIMEIRA PÁGINA (login)*/
+    var nome_valor = localStorage.getItem('nome');
+    var email_valor = localStorage.getItem('email');
+    var empresa_valor = localStorage.getItem('empresa');
+
+    /* SEGUNDA PÁGINA */
+    var tempo_medio_valor = localStorage.getItem('tempo_medio');
+    var quantidade_orcamento_valor = localStorage.getItem('quantidade_orcamento');
+
+    var perguntas_por_semana_valor = localStorage.getItem('perguntas_semana');
+    var respostas_por_perguntas_valor = localStorage.getItem('res_perguntas');
+
+    /* TERCEIRA PÁGINA */
+    var verificacao_por_minuto_valor = localStorage.getItem('verificacao_por_minuto');
+    var duracao_para_organizar_valor = localStorage.getItem('duracao_para_organizar');
+
+    /* QUARTA PÁGINA */
+    var tempo_de_preparo_de_contrato = localStorage.getItem('quantidade_minutos');
+
+    /* QUINTA PÁGINA */
+    var tempo_em_devolucao = localStorage.getItem('organizar_minuto_contrato');
+    var perda_de_tempo_por_material_valor = localStorage.getItem('perda_de_tempo_por_material');
+
     var condicao = [
-       va nome.length && email.length && empresa.length,
-        // tempo_medio_valor &&  
-    ]; 
-    console.log(condicao);
-     
+        (nome_valor.length > 0 && email_valor.length > 0 && empresa_valor.length > 0),
+        (tempo_medio_valor > 0 && quantidade_orcamento_valor > 0 && perguntas_por_semana_valor > 0 &&  respostas_por_perguntas_valor > 0),
+        (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0)
+    ];
+
+    if (condicao[pagina_atual]) {
+        localStorage.setItem('pagina_atual', ++pagina_atual);
+    }
+
+    if(pagina_atual == 5){
+        mostrarResultdosNaTela();
+    }
 
 })
 
@@ -112,63 +135,27 @@ botao_back.addEventListener('click', function (e) {
 })
 
 function validaSeFormEstaPrenchido() {
-    return nome.value.length 
-        && email.value.length 
+    return nome.value.length
+        && email.value.length
         && empresa.value.length;
 }
 
 function carregaOValorDosInputs() {
 
-    /* PRIMEIRA PÁGINA (login)*/
 
+    /* CALCULO  PAGINA 1 */
+    var tempo_medio_orcamento_por_mes = tempo_medio_valor * quantidade_orcamento_valor;
 
-   
-    nome = localStorage.getItem('nome')  
+    /* CALCULO PÁGINA  2 */
+    var respostas_por_semana_valor = perguntas_por_semana_valor * respostas_por_perguntas_valor;
 
-
-    email.addEventListener("blur", function( lo ) {
-        localStorage.setItem('email', lo.target.value)  
-    })
-
-    empresa.addEventListener("blur", function( lo ) {
-        localStorage.setItem('empresa', lo.target.value)  
-    })
-
-    /* SEGUNDA PÁGINA */
-    var tempo_medio_valor = localStorage.getItem('tempo_medio');
-    var quantidade_orcamento_valor = localStorage.getItem('quantidade_orcamento');
-    
-    var tempo_medio_orcamento_por_mes = tempo_medio_valor * quantidade_orcamento_valor;/* CALCULO */
-
-    var perguntas_por_semana_valor = localStorage.getItem('perguntas_semana');
-    var respostas_por_perguntas_valor = localStorage.getItem('res_perguntas');
-   
-    var respostas_por_semana_valor = perguntas_por_semana_valor * respostas_por_perguntas_valor;/* CALCULO PÁGINA */
-     
-    /* TERCEIRA PÁGINA */
-
-
-    var verificacao_por_minuto_valor = localStorage.getItem('verificacao_por_minuto');
-    var duracao_para_organizar_valor = localStorage.getItem('duracao_para_organizar');
+    /* CALCULO PÁGINA  3 */
     var vericacao_de_organizacao_por_min =  verificacao_por_minuto_valor * duracao_para_organizar_valor;
-     
-    /* QUARTA PÁGINA */
 
-    var tempo_de_preparo_de_contrato = localStorage.getItem('quantidade_minutos');
-    
-    
-    /* QUINTA PÁGINA */
-
-    var tempo_em_devolucao = localStorage.getItem('organizar_minuto_contrato');
-    var perda_de_tempo_por_material_valor = localStorage.getItem('perda_de_tempo_por_material');
-
-     /* CALCULOS PÁGINA FIM */
-
-    var tempo_ganho = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + tempo_de_preparo_e_de_devolucao;
-    
-    var divisao_horas = tempo_ganho/60;
-        
-    var tempo_perdido = divisao_horas/180; 
+    /* CALCULOS PÁGINA FIM */
+    var tempo_ganho = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + tempo_em_devolucao;
+    var divisao_horas = tempo_ganho / 60;
+    var tempo_perdido = divisao_horas / 180;
 
 }
 
