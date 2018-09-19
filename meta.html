@@ -324,7 +324,7 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
 
                             <h2>Para buscar(procurar) contrato e preparar orçamentos pra meus clientes gastar em média <input required minlength="1" type="number" min="0" class="bootstrap-bar" name="num1" id="tempo_medio"> minutos.</h2> 
                     
-                            <h2 class="h-2">Em geral preparo cerca de <input type="number" required minlength="1" class="bootstrap-bar" name="num2" id="quantidade_orcamento" > orçamentos por mês.</h2>   
+                            <h2 class="h-2">Em geral preparo cerca de <input type="number"   min="0" required minlength="1" class="bootstrap-bar" name="num2" id="quantidade_orcamento" > orçamentos por mês.</h2>   
                     </div> 
                 </div>
 
@@ -332,7 +332,7 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
                 <div class="form-group">
                     <div class="col-md-6 col-xs-12">
                             <h2>Quanto tenho desse tipo de peça no meu estoque? Nesta data, terei essa disponibilidade? Algum item precisa ser adquirido?</h2>
-                                    <h2>Essas perguntas ocorrem pelos menos  <input required minlength="1" type="number" class="bootstrap-bar" name="num3" id="perguntas_semana" min="0"> vezes por semana e para responde-las hoje preciso de pelo menos  <input required minlength="1" type="number" class="bootstrap-bar" name="num4" id="res_perguntas"> minutos.</h2>
+                                    <h2>Essas perguntas ocorrem pelos menos  <input required minlength="1" type="number"  min="0" class="bootstrap-bar" name="num3" id="perguntas_semana" > vezes por semana e para responde-las hoje preciso de pelo menos  <input required minlength="1" type="number" class="bootstrap-bar" name="num4"  min="0" id="res_perguntas"> minutos.</h2>
                     </div>
                 </div>
         </div>
@@ -349,13 +349,13 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
         <div class="form-group">
             <div class="col-md-6 col-xs-12" style="padding: 24px; right: 15px;">
                     <h2 class="h-2">Verificar preços cobrados anteriomente, verificar disponibilidade, achar o modelo padrão em word ou excel, copiar e colar dados cadastrais do cliente (*ERROS!), salvar arquivo em PDF, enviar por email para o cliente.</h2>  
-                    <h2>Tudo isso me toma  <input required minlength="1" type="number" class="bootstrap-bar" name="num5" id="verificacao_por_minuto" > minutos para ser feito sempre que preciso preparar um novo contrato.</h2>
+                    <h2>Tudo isso me toma  <input required minlength="1"  min="0" type="number" class="bootstrap-bar" name="num5" id="verificacao_por_minuto" > minutos para ser feito sempre que preciso preparar um novo contrato.</h2>
         </div>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-6 col-xs-12">
-                            <h2>Demoro cerca de  <input required minlength="1" type="number" class="bootstrap-bar" name="num6" id="duracao_para_organizar"  > minutos por dia para organizar a logística(rota de entrega e recolhimento do acervo) dos compromissos já contratados todos os dias.</h2>  
+                            <h2>Demoro cerca de  <input required minlength="1" type="number" class="bootstrap-bar"  min="0" name="num6" id="duracao_para_organizar"  > minutos por dia para organizar a logística(rota de entrega e recolhimento do acervo) dos compromissos já contratados todos os dias.</h2>  
                             <!-- <img src="log.gif" alt="gif_Logistica" width="95%" height="230px"> -->
                          </div>
                     </div>
@@ -377,7 +377,7 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
         <div class="row">
                 <div class="form-group">
                     <div class="col-md-6 col-xs-12">
-                            <h2>Em média preciso me concentrar por pelo menos <input type="number" required minlength="1" class="bootstrap-bar" id="quantidade_minutos"  min="0"> minutos para preparar cada contrato com atenção.</h2>
+                            <h2>Em média preciso me concentrar por pelo menos <input type="number" required minlength="1"  min="0"  class="bootstrap-bar" id="quantidade_minutos" name="num7"> minutos para preparar cada contrato com atenção.</h2>
                  </div>
                 </div>
         </div>
@@ -393,31 +393,34 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
         <div class="form-group">
             <div class="col-md-6 col-xs-12" style="padding: 24px; right: 15px;">
                     <h2>Com a rota de devoluções pronta, é necessário detalhar o que deverá ser desmontado e recolhido.</h2>  
+                    <h2>Para organizar isso levo em média <input required minlength="1" type="number" class="bootstrap-bar"name="num8"  min="0" id="organizar_minuto_contrato"> minutos por contrato a ser recolhido.</h2>  
+        
             </div> 
         </div>
 
 <div class="row">
         <div class="form-group">
             <div class="col-md-6 col-xs-12">
-                    <h2>Para organizar isso levo em média <input required minlength="1" type="number" class="bootstrap-bar" id="organizar_minuto_contrato"> minutos por contrato a ser recolhido.</h2>  
-            </div>
+
+                    <h2>Quando não estou 100% organizado(a), corro um risco de esquecer de levar algum material.</h2>
+                    <h2>Quando isso acontece perco pelo menos <input required minlength="1" type="number" class="bootstrap-bar"name="num8"  min="0" id="perda_de_tempo_por_material"> minutos.</h2>
+
+                       </div>
         </div>
 </div>
     </div>
-<!-- FECHA pag.4 -->
+<!-- FECHA pag.5 -->
 
                     <!-- <ABA> -->
                     <div class="wizard-pane" role="tabpanel" aria-expanded="false">
                         <h1 class="text-muted">E finalmente... <strong>Os resultados:</strong></h1>
                               <div class="text-camp">
-            <h2>Sua hora de trabalho vale: <strong  id="minutos_orcamento"></strong> reais.</h2>
-            <h2>E você gasta <strong id ="valor_perguntas_semana"></strong> horas resolvendo esses problemas.</h2>
+            <h2>Percebemos que você gasta  % do seu tempo, ou seja, <strong id="tempo_ganho"></strong> horas resolvendo os problemas citados. Isso lhe custa mensalmente cerca de r$ <strong  id="minutos_orcamento"></strong> .</h2>
+            <h2>Se deste valor desperdiçado você investir <strong id ="valor_perguntas_semana"></strong>%, isso é, r$ <strong id ="valor_perguntas_semana"></strong>, ainda estaria economizando um total de <strong id ="valor_perguntas_semana"></strong> reais e potencializaria a sua empresa aumentar o seu faturamento em r$ <strong id ="valor_perguntas_semana"></strong> </h2>
             <h2>Ou seja, por mes, você desperdiça <strong id="resut_tempo_verificacao"></strong> reais!</h2>
                            
-            <h2>Em um ano, seu gasto aumenta para <strong id="gasto_ano">U</strong>. Bastante né?</h2>
-            <h2>E se eu te disser que, investindo <strong id="">T%</strong> desse valor, você pode resolver todos esses problemas de forma fácil e ágil?</h2>
-            <h2>Com o B2, você pode minimizar essas situações e aumentar seu faturamento atual em <strong id="">V%</strong>!</h2>
-            <h2>Use seus recursos de forma inteligente. Vem com o B2rent!</h2>                                    
+         
+            <h2>Gostaria de entender melhor Como pode chegar nestes resultados?</h2>                                    
 
                           
                                     
