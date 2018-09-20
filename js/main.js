@@ -123,6 +123,7 @@ botao_next.addEventListener('click', function (e) {
         localStorage.setItem('pagina_atual', ++pagina_atual);
     }
 
+
     if(pagina_atual == 5){
         mostrarResultdosNaTela();
     }
