@@ -33,6 +33,11 @@ var organizar_minuto_contrato = document.getElementById('organizar_minuto_contra
 var perda_de_tempo_por_material = document.getElementById('perda_de_tempo_por_material');
 
 
+// CALCULO
+
+var tempo_ganho = document.getElementById('tempo_ganho');
+
+
 
 /* PRIMEIRA PÁGINA (login)*/
 nome.addEventListener("blur", function( lo ) {
@@ -88,6 +93,8 @@ perda_de_tempo_por_material.addEventListener("blur", function( event ) {
 })
 
 
+
+
 botao_next.addEventListener('click', function (e) {
 
     /* PRIMEIRA PÁGINA (login)*/
@@ -116,17 +123,50 @@ botao_next.addEventListener('click', function (e) {
     var condicao = [
         (nome_valor.length > 0 && email_valor.length > 0 && empresa_valor.length > 0),
         (tempo_medio_valor > 0 && quantidade_orcamento_valor > 0 && perguntas_por_semana_valor > 0 &&  respostas_por_perguntas_valor > 0),
-        (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0)
+        (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0),
+        (tempo_de_preparo_de_contrato > 0),
+        (tempo_em_devolucao > 0)
     ];
 
     if (condicao[pagina_atual]) {
         localStorage.setItem('pagina_atual', ++pagina_atual);
     }
 
-
     if(pagina_atual == 5){
-        mostrarResultdosNaTela();
+
+        var tempo_ganho = localStorage.getItem('tempo_ganho');
+         var divisao_horas = localStorage.getItem('divisao_horas');
+
+
+
+        // /* CALCULO  PAGINA 2 */
+
+        var tempo_medio_orcamento_por_mes = tempo_medio_valor * quantidade_orcamento_valor;
+        var respostas_por_semana_valor = perguntas_por_semana_valor * respostas_por_perguntas_valor;
+        
+        
+        // CALCULO PAGINA 3
+
+         var vericacao_de_organizacao_por_min = verificacao_por_minuto_valor * duracao_para_organizar_valor; 
+         
+        // CALCULO PAGINA 4
+    
+        var media_de_minutos_pra_se_concentrar = tempo_de_preparo_de_contrato;
+       
+
+       // CALCULO PAGINA 5
+        var tempo_de_organizacao_em_media_e_minutos = tempo_em_devolucao * perda_de_tempo_por_material_valor; 
+
+        // CALCULO FINAL
+
+        var tempo_ganho = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
+        var divisao_horas = tempo_ganho / 60;
+        var tempo_perdido = divisao_horas / 180;
+     
+         console.log(tempo_ganho);
+
     }
+
 
 })
 
@@ -140,29 +180,4 @@ function validaSeFormEstaPrenchido() {
         && email.value.length
         && empresa.value.length;
 }
-
-function carregaOValorDosInputs() {
-
-
-    /* CALCULO  PAGINA 1 */
-    var tempo_medio_orcamento_por_mes = tempo_medio_valor * quantidade_orcamento_valor;
-
-    /* CALCULO PÁGINA  2 */
-    var respostas_por_semana_valor = perguntas_por_semana_valor * respostas_por_perguntas_valor;
-
-    /* CALCULO PÁGINA  3 */
-    var vericacao_de_organizacao_por_min =  verificacao_por_minuto_valor * duracao_para_organizar_valor;
-
-    /* CALCULOS PÁGINA FIM */
-    var tempo_ganho = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + tempo_em_devolucao;
-    var divisao_horas = tempo_ganho / 60;
-    var tempo_perdido = divisao_horas / 180;
-
-}
-
-
-
-
-
-
 
