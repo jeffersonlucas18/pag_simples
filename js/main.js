@@ -39,6 +39,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
 
 
+
 /* PRIMEIRA PÁGINA (login)*/
 nome.addEventListener("blur", function( lo ) {
     localStorage.setItem('nome', lo.target.value)
@@ -134,39 +135,41 @@ botao_next.addEventListener('click', function (e) {
 
     if(pagina_atual == 5){
 
-        var tempo_ganho = localStorage.getItem('tempo_ganho');
+        
          var divisao_horas = localStorage.getItem('divisao_horas');
 
 
 
         // /* CALCULO  PAGINA 2 */
 
-        var tempo_medio_orcamento_por_mes = tempo_medio_valor * quantidade_orcamento_valor;
-        var respostas_por_semana_valor = perguntas_por_semana_valor * respostas_por_perguntas_valor;
+        var tempo_medio_orcamento_por_mes = parseInt(tempo_medio_valor) * parseInt(quantidade_orcamento_valor);
+        var respostas_por_semana_valor = parseInt(perguntas_por_semana_valor) * parseInt(respostas_por_perguntas_valor);
         
         
         // CALCULO PAGINA 3
 
-         var vericacao_de_organizacao_por_min = verificacao_por_minuto_valor * duracao_para_organizar_valor; 
+         var vericacao_de_organizacao_por_min = parseInt(verificacao_por_minuto_valor) * parseInt(duracao_para_organizar_valor); 
          
         // CALCULO PAGINA 4
     
-        var media_de_minutos_pra_se_concentrar = tempo_de_preparo_de_contrato;
+        var media_de_minutos_pra_se_concentrar = parseInt(tempo_de_preparo_de_contrato);
        
 
        // CALCULO PAGINA 5
-        var tempo_de_organizacao_em_media_e_minutos = tempo_em_devolucao * perda_de_tempo_por_material_valor; 
+        var tempo_de_organizacao_em_media_e_minutos = parseInt(tempo_em_devolucao) * parseInt(perda_de_tempo_por_material_valor); 
 
         // CALCULO FINAL
 
-        var tempo_ganho = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
-        var divisao_horas = tempo_ganho / 60;
-        var tempo_perdido = divisao_horas / 180;
-     
-         console.log(tempo_ganho);
+        var tempo_ganho_valor = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
+        var divisao_horas_valor = tempo_ganho_valor / 60;
+        //var porcentagem =  divisao_horas_valor * 100;
+        var tempo_perdido_valor = divisao_horas_valor / 180;
+        
+        tempo_perdido.innerText = tempo_perdido_valor;
+        horas.innerText = tempo_perdido_valor;
+        
 
     }
-
 
 })
 
