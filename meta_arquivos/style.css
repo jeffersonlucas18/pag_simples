@@ -108,7 +108,7 @@ h4,
 h5,
 h6 {
     color: #2b2b2b;
-    margin: 10px 0;
+
 }
 
 h1 {
@@ -20208,7 +20208,11 @@ input[type=text] {
         font-weight: 300;
         font-family: 'Open Sans', sans-serif;
         margin-left: -60px;
-    }
+      }
+
+     /*.wizard-buttons > a {
+          padding-right: 60px; 
+      }  */
     }
     
     hr {
@@ -20244,8 +20248,6 @@ input[type=text] {
 @media only screen and (max-width: 480px) {
     h4.r-r-footer a{
         position: relative;
-        margin-top: 20px;
-        
-    }
-  
+        margin-top: 20px;  
+        }
     }
