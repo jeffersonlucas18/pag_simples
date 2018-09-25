@@ -18,6 +18,7 @@ var res_perguntas = document.getElementById('res_perguntas');
 var perguntas_semana = document.getElementById('perguntas_semana');
 
 
+
 var minutos_orcamento = document.getElementById('minutos_orcamento');
 var valor_perguntas_semana = document.getElementById('valor_perguntas_semana');
 
@@ -158,7 +159,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         var tempo_ganho_valor = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
         var divisao_horas_valor = tempo_ganho_valor / 60;
-        var tempo_perdido_valor = divisao_horas_valor / 180;
+        var tempo_gasto_valor = divisao_horas_valor / 180;
         
         var divisao_valor_fixo = 5000 / 180;
 
@@ -166,18 +167,18 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         var quantidade_despedicado_investido = 490/custo_mensal_desperdicisado * 100;
         var economia_feita_valor = custo_mensal_desperdicisado - 490;
-        var ganho_faturamento_valor = 99*7000/(100 - (tempo_perdido_valor*100));
-        
+        var aumento_faturado_valor = 99*7000/(100 - (tempo_gasto_valor*100));
+
         var custo_de_desperdicio_a_investir = custo_mensal_desperdicisado * quantidade_despedicado_investido;
         var parte_do_valor_investido_valor = custo_de_desperdicio_a_investir / 100;
 
 
-          tempo_perdido.innerText = tempo_perdido_valor.toFixed(2);
+          tempo_perdido.innerText = tempo_gasto_valor.toFixed(2);
           horas.innerText = divisao_horas_valor.toFixed();
           custo_desperdicado.innerText = custo_mensal_desperdicisado.toFixed(2);
           quantidade_desperdicada.innerText = quantidade_despedicado_investido.toFixed(2);
           economia_feita.innerText = economia_feita_valor.toFixed(1);
-          ganho_faturamento.innerText = ganho_faturamento_valor.toFixed(1);
+          ganho_faturamento.innerText = aumento_faturado_valor.toFixed(1);
           parte_do_valor_investido.innerText = parte_do_valor_investido_valor.toFixed(2);
 
     }
