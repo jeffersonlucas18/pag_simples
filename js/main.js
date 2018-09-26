@@ -185,6 +185,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         var custo_mensal_desperdicisado =  divisao_valor_fixo * divisao_horas_valor;
         var economia_feita_valor = custo_mensal_desperdicisado - 490;
 
+
         var quantidade_despedicado_investido = custo_mensal_desperdicisado / 100;
         
         var ganho_faturado_valor =  (7000 + (7000 * tempo_gasto_valor));
