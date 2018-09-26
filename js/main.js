@@ -16,16 +16,15 @@ var tempo_medio =  document.getElementById('tempo_medio');
 var quantidade_orcamento =  document.getElementById('quantidade_orcamento');
 var res_perguntas = document.getElementById('res_perguntas');
 var perguntas_semana = document.getElementById('perguntas_semana');
-
-
-
 var minutos_orcamento = document.getElementById('minutos_orcamento');
 var valor_perguntas_semana = document.getElementById('valor_perguntas_semana');
+var empresa_faturada = document.getElementById('faturamento_empresarial');
 
 
 var verificacao_por_minuto = document.getElementById('verificacao_por_minuto');
 var duracao_para_organizar = document.getElementById('duracao_para_organizar');
-
+var valor_medio_prolabore = document.getElementById('valor_prolabore');
+var horas_trabalhada_por_mes = document.getElementById('horas_trabalhadas')
 
 var quantidade_minutos = document.getElementById('quantidade_minutos');
 
@@ -68,6 +67,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
     res_perguntas.addEventListener("blur", function( event ) {
         localStorage.setItem('res_perguntas', event.target.value)
     })
+    empresa_faturada.addEventListener("blur", function(event){
+        localStorage.setItem('faturamento_empresarial', event.target.value)
+    })
 
 
     /* TERCEIRA PÁGINA */
@@ -79,6 +81,20 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         localStorage.setItem('duracao_para_organizar', event.target.value)
     })
 
+
+    verificacao_por_minuto.addEventListener("blur", function( event ) {
+        localStorage.setItem('verificacao_por_minuto', event.target.value)
+    })
+
+    duracao_para_organizar.addEventListener("blur", function( event ) {
+        localStorage.setItem('duracao_para_organizar', event.target.value)
+    })
+    valor_medio_prolabore.addEventListener("blur", function(event){
+        localStorage.setItem('valor_prolabore', event.target.value)
+    })
+    horas_trabalhada_por_mes.addEventListener("blur", function(event){
+        localStorage.setItem('horas_trabalhadas', event.target.value )
+    })
 
     /* QUARTA PÁGINA */
     quantidade_minutos.addEventListener("blur", function( event ) {
@@ -110,11 +126,13 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
     var perguntas_por_semana_valor = localStorage.getItem('perguntas_semana');
     var respostas_por_perguntas_valor = localStorage.getItem('res_perguntas');
-
+    var empresa_faturada_valor = localStorage.getItem('faturamento_empresarial');
+    
     /* TERCEIRA PÁGINA */
     var verificacao_por_minuto_valor = localStorage.getItem('verificacao_por_minuto');
     var duracao_para_organizar_valor = localStorage.getItem('duracao_para_organizar');
-
+    var valor_medio_prolabore_valor = localStorage.getItem('valor_prolabore');
+    var horas_trabalhada_por_mes_valor = localStorage.getItem('horas_trabalhadas');
     /* QUARTA PÁGINA */
     var tempo_de_preparo_de_contrato = localStorage.getItem('quantidade_minutos');
 
@@ -123,9 +141,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
     var perda_de_tempo_por_material_valor = localStorage.getItem('perda_de_tempo_por_material');
 
     var condicao = [
-         (nome_valor.length > 0 && email_valor.length > 0 && empresa_valor.length > 0),
-        (tempo_medio_valor > 0 && quantidade_orcamento_valor > 0 && perguntas_por_semana_valor > 0 &&  respostas_por_perguntas_valor > 0),
-        (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0),
+        (nome_valor.length > 0 && email_valor.length > 0 && empresa_valor.length > 0),
+        (tempo_medio_valor > 0 && quantidade_orcamento_valor > 0 &&  empresa_faturada_valor > 0 && perguntas_por_semana_valor > 0 &&  respostas_por_perguntas_valor > 0),
+        (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0 && valor_medio_prolabore_valor > 0 && horas_trabalhada_por_mes_valor > 0),
         (tempo_de_preparo_de_contrato > 0),
         (tempo_em_devolucao > 0)
     ];
@@ -144,7 +162,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         
         
         // CALCULO PAGINA 3
-
+ 
          var vericacao_de_organizacao_por_min = parseInt(verificacao_por_minuto_valor) * parseInt(duracao_para_organizar_valor); 
          
         // CALCULO PAGINA 4
@@ -159,27 +177,35 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         var tempo_ganho_valor = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
         var divisao_horas_valor = tempo_ganho_valor / 60;
-        var tempo_gasto_valor = divisao_horas_valor / 180;
+        var tempo_gasto_valor = divisao_horas_valor / 180; //essa variavel 180 vai mudar
         
+        console.log(tempo_ganho_valor);
         var divisao_valor_fixo = 5000 / 180;
 
         var custo_mensal_desperdicisado =  divisao_valor_fixo * divisao_horas_valor;
-
-        var quantidade_despedicado_investido = 490/custo_mensal_desperdicisado * 100;
         var economia_feita_valor = custo_mensal_desperdicisado - 490;
-        var aumento_faturado_valor = 99*7000/(100 - (tempo_gasto_valor*100));
 
+        var quantidade_despedicado_investido = custo_mensal_desperdicisado / 100;
+        
+        var ganho_faturado_valor =  (7000 + (7000 * tempo_gasto_valor));
+       
+       
+        var aumento_faturado_valor = aumento_faturado_valor + (ga) ;
+
+       
         var custo_de_desperdicio_a_investir = custo_mensal_desperdicisado * quantidade_despedicado_investido;
-        var parte_do_valor_investido_valor = custo_de_desperdicio_a_investir / 100;
-
+        var parte_do_valor_investido = custo_de_desperdicio_a_investir / 100;
 
           tempo_perdido.innerText = tempo_gasto_valor.toFixed(2);
           horas.innerText = divisao_horas_valor.toFixed();
           custo_desperdicado.innerText = custo_mensal_desperdicisado.toFixed(2);
           quantidade_desperdicada.innerText = quantidade_despedicado_investido.toFixed(2);
           economia_feita.innerText = economia_feita_valor.toFixed(1);
-          ganho_faturamento.innerText = aumento_faturado_valor.toFixed(1);
-          parte_do_valor_investido.innerText = parte_do_valor_investido_valor.toFixed(2);
+          valor_investido.innerText = parte_do_valor_investido.toFixed(1);
+          ganho_que_faturou.innerText = ganho_faturado_valor.toFixed(1);
+     
+        console.log(ganho_faturado_valor);
+
 
     }
 
