@@ -35,6 +35,9 @@
     
     <script type="text/javascript" async="" src="meta_arquivos/2e6e0678-2f20-4cdd-a268-c6d9a1f98f3a-loader.js"></script>
     
+    <script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.maskMoney.js" type="text/javascript"></script>
+
 
     
 
@@ -126,7 +129,18 @@
                     campo.value = "";
                 }
             }
+     
+
         </script>
+
+    <script type="text/javascript">
+    $(function(){
+    $("#faturamento_empresarial").maskMoney({symbol:'R$ ', 
+    showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+
+
+})
+    </script>
          
         <style>
             html{
@@ -332,8 +346,8 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
 
                             <h2>Para buscar(procurar) contrato e preparar orçamentos pra meus clientes gastar em média <input required minlength="1" type="number" min="0" class="bootstrap-bar" name="num1" id="tempo_medio"> minutos.</h2> 
                             <h2 class="h-2">Em geral preparo cerca de <input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num2" id="quantidade_orcamento" > orçamentos por mês.</h2>   
-                           <h2>Quanto a sua empresa faturou? <input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num9" id="faturamento_empresarial"></h2>
-                          
+                           <h2>Quanto a sua empresa faturou? <input type="number"  min="0" required minlength="1" class="bootstrap-bar" name="num9" id="faturamento_empresarial" style="width: 85%; font-size: 25px;" > </h2>
+                         
                         </div> 
                 </div>
 
@@ -365,14 +379,19 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
                     <div class="form-group">
                         <div class="col-md-6 col-xs-12">
                             <h2>Demoro cerca de  <input required minlength="1" type="number" class="bootstrap-bar"  min="0" name="num6" id="duracao_para_organizar"  > minutos por dia para organizar a logística(rota de entrega e recolhimento do acervo) dos compromissos já contratados todos os dias.</h2>  
-                            <h2>Qual o valor do prolabore (médio)?<input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num10" id="valor_prolabore" ></h2>
-                            
-
-                            <h2>Horas trabalhadas por mês?<input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num" id="horas_trabalhadas" ></h2>
-
-                             </div>
+                            <div class="container">
+                                    <div class="row">
+                                      <h2>Qual o valor do prolabore (médio)?</h2>
+                                        <input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num10" id="valor_prolabore" style="width: 30%; font-size: 25px;">
+                                    </div>
+                                    <div class="row">
+                                        <h2>Horas trabalhadas por mês?</h2>
+                                        <input type="number" min="0" required minlength="1" class="bootstrap-bar" name="num" id="horas_trabalhadas" style="width: 30%; font-size: 25px">
+                                    </div> 
+                            </div>
+                        </div>
                     </div>
-            </div>
+                </div>
 </div>
 <br/>
     </div>
@@ -426,14 +445,27 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
 
                     <!-- <ABA> -->
                     <div class="wizard-pane" role="tabpanel" aria-expanded="false">
-                        <h1 class="text-muted">E finalmente... <strong>Os resultados:</strong></h1>
+                        <h1 class="text-muted">Excelente... <strong>seus resultados estão prontos:</strong></h1>
                               <div class="text-camp">
-    <h2>Percebemos que você gasta  <strong id="tempo_perdido"></strong>% do seu tempo, ou seja, <strong id="horas"></strong> horas resolvendo os problemas citados. Isso lhe custa mensalmente cerca de r$ <strong  id="custo_desperdicado"></strong> .</h2>
-<h2>Se deste valor desperdiçado você investir <strong id ="quantidade_desperdicada"></strong>%, isso é, r$ <strong id="valor_investido" ></strong>, ainda estaria economizando um total de <strong id ="economia_feita"></strong> reais e potencializaria a sua empresa aumentar o seu faturamento em r$ <strong id ="aumento_faturado"></strong> </h2>
-                        
-    <h2>Gostaria de entender melhor Como pode chegar nestes resultados?</h2>                                    
-    <button class="button_resposta">Sim</button>
-                          
+
+
+    <div class="corp">
+        <h2>Percebemos que você gasta  <strong id="tempo_perdido"></strong>% do seu tempo, ou seja, 
+        <strong id="horas"></strong>
+        horas resolvendo os problemas citados. Isso lhe custa mensalmente cerca de r$ 
+        <strong  id="custo_desperdicado"></strong>.</h2>
+   
+          <h2>Se deste valor desperdiçado você investir <strong id ="quantidade_desperdicada"></strong>%, isso é, r$ 
+          <strong id="valor_investido" ></strong>, ainda estaria economizando um total de <strong id ="economia_feita"></strong> 
+          reais e potencializaria a sua empresa aumentar o seu faturamento em r$ <strong id ="aumento_faturado"></strong> </h2>
+        </div>
+                   
+     
+<div id="link_but">
+    <h2 style="font-weight: 600;">Gostaria de entender melhor Como pode chegar nestes resultados?</h2>                                    
+    <button class="button_resposta_sim" >Sim</button>
+   
+</div>                   
                                     
                          </div> 
                     </div>
@@ -455,7 +487,7 @@ src="https://www.facebook.com/tr?id=1581301538575800&ev=PageView&noscript=1"
     </div>
 
     <div class="footer" style="z-index: -1;">
-            <h4 class="r-r-footer" style="margin-bottom: -20px;">Visite também o nosso site da <a  id="bt-b2" href="http://b2rent.com.br/" data-toggle="tooltip" title="Sistema online criado apartir das necessidades do setor de festas/eventos!" >B2rent</a></h4>
+            <h4 class="r-r-footer" style="margin-bottom: -20px;">Visite também o nosso site: <a  id="bt-b2" href="http://b2rent.com.br/" data-toggle="tooltip" title="Sistema online criado apartir das necessidades do setor de festas/eventos!" >B2rent</a></h4>
             <p style="margin-bottom: 10px;">  B2rent - Somos B2rent e estamos determinados a fazer empresas crecerem - Copyright © 2018 -<br/> 
                 Todos os direitos reservados.</p>
                    <div class="icon-bar">

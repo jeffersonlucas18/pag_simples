@@ -527,7 +527,7 @@ hr {
 }
 
 .font-light {
-    font-weight: 300
+    font-weight: 500;
 }
 
 .pull-in {
@@ -771,7 +771,7 @@ position: absolute;
 }
 
 .font-18 {
-    font-size: 18px!important
+    font-size: 22px!important
 }
 
 .font-19 {
@@ -1726,6 +1726,7 @@ pre {
 .btn-label {
     margin: -6px 12px -6px -14px;
     padding: 5px 15px;
+
 }
 
 .btn-facebook {
@@ -5935,7 +5936,7 @@ ul.list-icons li i {
 
 .wizard-steps>li.current span,
 .wizard-steps>li.done span {
-    border-color: #fff;
+   
     color: #fff
 }
 
@@ -9770,7 +9771,7 @@ ul.list-icons li i {
 }
 
 .ti-line-double:before {
-    content: "\e6e5"
+    content: "\ &#x2613;"
 }
 
 .ti-line-dotted:before {
@@ -19989,16 +19990,22 @@ hr {
    color:    #c9c9c9;
 }
 
-
-
 .info-tootip{
-text-decoration: underline;
+   text-decoration: underline;
 }
 
 .Canais_Borda{
-	white-space: nowrap; position:absolute; border: solid 5px #e8eaec;
+    white-space: nowrap;
+     position:absolute; 
+     border: solid 5px #e8eaec;
 }
-.ValorMeta h1{text-overflow: ellipsis!important; white-space: nowrap!important; overflow: hidden!important;letter-spacing: -2px;}
+.ValorMeta h1{
+     text-overflow: ellipsis!important;
+     white-space: nowrap!important; 
+     overflow: hidden!important;
+     letter-spacing: -2px;
+    }
+
 .formNone{
 	background: transparent;
     border: none;
@@ -20034,11 +20041,19 @@ background-color: #fcbc28;
 }
 
 .bootstrap-bar {
+   
        width: 24%;
        height: 38px;
-       border: 1px solid #555;
+       padding: 10;
+       border: 2px solid #ccc;
        text-align: center;
+       border-radius: 5px;
+       font-weight: 600;
+       color: #8d9ea7;
+       font-family: Roboto;
 }
+
+
 
 
 input[type=text] {
@@ -20255,42 +20270,54 @@ input[type=text] {
     }
 
 
-    .button_resposta {
+    .button_resposta_sim {
     position: relative;
     background-color: #4CAF50;
     border: none;
     font-size: 28px;
     color: #FFFFFF;
-    padding: 20px;
+    padding: 8px 10px 8px 10px;
     width: 200px;
     text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
     border-radius: 10px;
+    width: 20%;
+    font-weight: 700;
 }
 
-.button_resposta:after {
-    content: "";
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
+
+
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+
+
+.corp,.corp1 {
+    background: #fff;
+   
+    height: auto;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    line-height:25px;
+    float: left;
+    margin: 10px;
+    }
+
+
     
-}
+    .corp p {
+    text-align: left;
+    font-family: Raleway;
+    color: #333333;
+    font-weight: 700;
+    }
 
-.button_resposta:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-
-
+    #link_but {
+       float: left;
+    }

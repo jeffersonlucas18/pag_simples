@@ -1,5 +1,5 @@
 
-            
+localStorage.clear();
 
 var pagina_atual = 0;
 
@@ -145,7 +145,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         (tempo_medio_valor > 0 && quantidade_orcamento_valor > 0 &&  empresa_faturada_valor > 0 && perguntas_por_semana_valor > 0 &&  respostas_por_perguntas_valor > 0),
         (verificacao_por_minuto_valor > 0 && duracao_para_organizar_valor > 0 && valor_medio_prolabore_valor > 0 && horas_trabalhada_por_mes_valor > 0),
         (tempo_de_preparo_de_contrato > 0),
-        (tempo_em_devolucao > 0)
+        (tempo_em_devolucao > 0 && perda_de_tempo_por_material_valor > 0)
     ];
 
     if (condicao[pagina_atual]) {
@@ -163,8 +163,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         
         // CALCULO PAGINA 3
  
-         var vericacao_de_organizacao_por_min = parseInt(verificacao_por_minuto_valor) * parseInt(duracao_para_organizar_valor); 
-        
+        var vericacao_de_organizacao_por_min = parseInt(verificacao_por_minuto_valor) * parseInt(duracao_para_organizar_valor); 
+        var trabalho = parseInt(horas_trabalhada_por_mes_valor); 
+
         // CALCULO PAGINA 4
     
         var media_de_minutos_pra_se_concentrar = parseInt(tempo_de_preparo_de_contrato);
@@ -177,9 +178,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         var tempo_ganho_valor = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
         var divisao_horas_valor = tempo_ganho_valor / 60;
-        var tempo_gasto_valor = (divisao_horas_valor / 180) * 100; //essa variavel 180 vai mudar
+        var tempo_gasto_valor = (divisao_horas_valor / horas_trabalhada_por_mes_valor) * 100; //essa variavel 180 vai mudar
         
-        var divisao_valor_fixo = 5000 / 180;
+        var divisao_valor_fixo = valor_medio_prolabore_valor / trabalho;
 
         var custo_mensal_desperdicisado =  divisao_valor_fixo * divisao_horas_valor; // B17
         var economia_feita_valor = custo_mensal_desperdicisado - 490; // B20
@@ -201,9 +202,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
           quantidade_desperdicada.innerText = quantidade_despedicado_investido.toFixed(2);
           economia_feita.innerText = economia_feita_valor.toFixed(1);
           valor_investido.innerText = parte_do_valor_investido.toFixed(1);
-        //   ganho_que_faturou.innerText = ganho_faturado_valor.toFixed(1);
+        
           aumento_faturado.innerText = aumento_faturado_valor.toFixed(1);
-          console.log(aumento_faturado_valor);
+      
 
 
     }
@@ -220,4 +221,5 @@ var tempo_ganho = document.getElementById('tempo_ganho');
             && email.value.length
             && empresa.value.length;
     }
-
+    
+   
