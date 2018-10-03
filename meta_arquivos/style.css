@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,400,300,500,600,700,800);
-@import "spinners.css";
 body,
 h1,
 h2,
@@ -938,7 +937,7 @@ position: absolute;
     -moz-border-radius: 20px;
     border-radius: 20px;
     color: #fff;
-    font-size: 11px; 
+    font-size: 11px;
 }
 
 .label-warning {
@@ -1155,7 +1154,7 @@ pre {
 }
 ]
 .cod-grop {
-   
+
 }
 
 .table-responsive {
@@ -2616,7 +2615,7 @@ table.dataTable thead .sorting:after {
     display: inline-block;
     padding-left: 5px;
     position: relative
-    
+
 }
 
 .checkbox label::after,
@@ -5936,7 +5935,7 @@ ul.list-icons li i {
 
 .wizard-steps>li.current span,
 .wizard-steps>li.done span {
-   
+
     color: #fff
 }
 
@@ -8836,14 +8835,6 @@ ul.list-icons li i {
 
 .fa-percent:before {
     content: "\f295"
-}
-
-@font-face {
-    font-family: themify;
-    src: url(../less/icons/themify-icons/fonts/themify.eot?-fvbane);
-    src: url(../less/icons/themify-icons/fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'), url(../less/icons/themify-icons/fonts/themify.woff?-fvbane) format('woff'), url(../less/icons/themify-icons/fonts/themify.ttf?-fvbane) format('truetype'), url(../less/icons/themify-icons/fonts/themify.svg?-fvbane#themify) format('svg');
-    font-weight: 400;
-    font-style: normal
 }
 
 [class*=" ti-"],
@@ -19715,7 +19706,7 @@ hr {
     margin-top: -20px;
     z-index: 998;
     color: #708ea7;
-    
+
 }
 
 
@@ -19761,7 +19752,7 @@ hr {
 .modeloFunil h4 {
     white-space: nowrap!important;
     text-overflow: ellipsis!important;
-    
+
 }
 
 .modeloFunil h4 {
@@ -19996,12 +19987,12 @@ hr {
 
 .Canais_Borda{
     white-space: nowrap;
-     position:absolute; 
+     position:absolute;
      border: solid 5px #e8eaec;
 }
 .ValorMeta h1{
      text-overflow: ellipsis!important;
-     white-space: nowrap!important; 
+     white-space: nowrap!important;
      overflow: hidden!important;
      letter-spacing: -2px;
     }
@@ -20027,21 +20018,21 @@ hr {
     color: #fff;
     font-family: Roboto;
     }
-    
-    
+
+
 .wizard-steps>li.current>.EtapasForm{
 background-color: #fcbc28;
-	
-}   
- 
+
+}
+
 .wizard-steps>li.done>.EtapasForm{
 	    background-color: #fcbc28;
-	  
+
 
 }
 
 .bootstrap-bar {
-   
+
        width: 24%;
        height: 38px;
        padding: 10;
@@ -20101,7 +20092,7 @@ input[type=text] {
   .text-white {
       color: #fff;
       margin-left: 30px;
-      margin-bottom: 5px;  
+      margin-bottom: 5px;
     }
 
  .topo {
@@ -20109,7 +20100,7 @@ input[type=text] {
      background: #333333;
  }
 
- 
+
 .icon-bar {
      height: 0;
      -webkit-transform: translateY(-50%);
@@ -20192,8 +20183,8 @@ input[type=text] {
         text-align: center;
         padding: 10px 20px 55px 20px;
      }
-    
-    
+
+
     h4.r-r-footer {
         position: relative;
         margin-left: -96px;
@@ -20203,7 +20194,7 @@ input[type=text] {
         padding: 34px;
         font-family: Raleway;
      }
-    
+
      h4.r-r-footer a {
         position: relative;
         font-size: 20px;
@@ -20213,11 +20204,11 @@ input[type=text] {
         text-align: center;
         background: #f4b12c;
      }
-    
+
      .m-t-10 {
          padding: 0px 20px 0px 20px;
        }
-    
+
        .tooltip-inner {
         border-radius: 5px;
         padding: 8px 10px;
@@ -20228,35 +20219,35 @@ input[type=text] {
       }
 
      /*.wizard-buttons > a {
-          padding-right: 60px; 
+          padding-right: 60px;
       }  */
     }
-    
+
     hr {
-        width: 1px; 
-        height: 90%; 
-        background: #333333; 
+        width: 1px;
+        height: 90%;
+        background: #333333;
         left: 420px;
         top: 80px;
         position: absolute;
     }
-    
+
     .linha2 {
-        width: 1px; 
-        height: 90%; 
-        background: #333333; 
+        width: 1px;
+        height: 90%;
+        background: #333333;
         left: 945px;
         top: 80px;
         position: absolute;
     }
-    
+
     .text-camp2 {
-        float: right; 
+        float: right;
         text-align: center;
-        top: -564px; 
+        top: -564px;
         position: relative;
     }
-    
+
     .text-camp3 {
         position: relative;
         left: 500px;
@@ -20265,7 +20256,7 @@ input[type=text] {
 @media only screen and (max-width: 480px) {
     h4.r-r-footer a{
         position: relative;
-        margin-top: 20px;  
+        margin-top: 20px;
         }
     }
 
@@ -20292,14 +20283,14 @@ input[type=text] {
 
 
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
 
 .corp,.corp1 {
     background: #fff;
-   
+
     height: auto;
     padding: 10px;
     border: 2px solid #ccc;
@@ -20310,7 +20301,7 @@ input[type=number]::-webkit-inner-spin-button {
     }
 
 
-    
+
     .corp p {
     text-align: left;
     font-family: Raleway;
