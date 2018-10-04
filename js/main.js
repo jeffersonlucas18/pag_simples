@@ -33,13 +33,7 @@ var quantidade_minutos = document.getElementById('quantidade_minutos');
 var organizar_minuto_contrato = document.getElementById('organizar_minuto_contrato');
 var perda_de_tempo_por_material = document.getElementById('perda_de_tempo_por_material');
 
-
-// CALCULO
-
 var tempo_ganho = document.getElementById('tempo_ganho');
-
-
-
 
 /* PRIMEIRA PÁGINA (login)*/
     nome.addEventListener("blur", function( lo ) {
@@ -92,7 +86,8 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         localStorage.setItem('duracao_para_organizar', event.target.value)
     })
     valor_medio_prolabore.addEventListener("blur", function(event){
-        localStorage.setItem('valor_prolabore', event.target.value)
+        var value2 = $('#valor_prolabore').cleanVal();
+        localStorage.setItem('valor_prolabore',value2)
     })
     horas_trabalhada_por_mes.addEventListener("blur", function(event){
         localStorage.setItem('horas_trabalhadas', event.target.value )
@@ -160,57 +155,51 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         // /* CALCULO  PAGINA 2 */
 
-        var tempo_medio_orcamento_por_mes = parseFloat(tempo_medio_valor) * parseFloat(quantidade_orcamento_valor);
-        var respostas_por_semana_valor = parseFloat(perguntas_por_semana_valor) * parseFloat(respostas_por_perguntas_valor);
-        var empresa_faturada = parseFloat(empresa_faturada_valor);
+        var tempo_medio_orcamento_por_mes = parseInt(tempo_medio_valor) * parseInt(quantidade_orcamento_valor);
+        var respostas_por_semana_valor = parseInt(perguntas_por_semana_valor) * parseInt(respostas_por_perguntas_valor);
+        var empresa_faturada = parseInt(empresa_faturada_valor);
 
         // CALCULO PAGINA 3
 
-        var vericacao_de_organizacao_por_min = parseFloat(verificacao_por_minuto_valor) * parseFloat(duracao_para_organizar_valor);
-        var trabalho = parseFloat(horas_trabalhada_por_mes_valor);
+        var vericacao_de_organizacao_por_min = parseInt(verificacao_por_minuto_valor) + parseInt(duracao_para_organizar_valor);
+        var trabalho = parseInt(horas_trabalhada_por_mes_valor);
+        
 
         // CALCULO PAGINA 4
 
-        var media_de_minutos_pra_se_concentrar = parseFloat(tempo_de_preparo_de_contrato);
+        var media_de_minutos_pra_se_concentrar = parseInt(tempo_de_preparo_de_contrato);
 
 
        // CALCULO PAGINA 5
-        var tempo_de_organizacao_em_media_e_minutos = parseFloat(tempo_em_devolucao) * parseFloat(perda_de_tempo_por_material_valor);
+        var tempo_de_organizacao_em_media_e_minutos = parseInt(tempo_em_devolucao) + parseInt(perda_de_tempo_por_material_valor);
 
         // CALCULO FINAL
 
         var tempo_ganho_valor = tempo_medio_orcamento_por_mes + respostas_por_semana_valor + vericacao_de_organizacao_por_min + media_de_minutos_pra_se_concentrar + tempo_de_organizacao_em_media_e_minutos ;
-        var divisao_horas_valor = tempo_ganho_valor / 60;
+        var divisao_horas_valor = (tempo_ganho_valor / 60);
         var tempo_gasto_valor = (divisao_horas_valor / horas_trabalhada_por_mes_valor) * 100; //essa variavel 180 vai mudar
 
-        var divisao_valor_fixo = valor_medio_prolabore_valor / trabalho;
+        var media_em_hora = valor_medio_prolabore_valor / trabalho;
 
-        var custo_mensal_desperdicisado =  divisao_valor_fixo * divisao_horas_valor; // B17
+        var custo_mensal_desperdicisado =  media_em_hora * divisao_horas_valor / 100; // B17
+    
+        var quantidade_despedicado_investido = (490 / custo_mensal_desperdicisado) * 100;
         var economia_feita_valor = custo_mensal_desperdicisado - 490; // B20
 
+        var aumento_faturado_valor =  empresa_faturada + (empresa_faturada * tempo_gasto_valor) / 1000; //B19
 
-        var quantidade_despedicado_investido = (490 / custo_mensal_desperdicisado) * 100;
-
-        var aumento_faturado_valor =  (parseFloat(empresa_faturada) +(parseFloat(empresa_faturada) * tempo_gasto_valor)); //B19
-
-
+        var formato = new Intl.NumberFormat('pt-BR').format(aumento_faturado_valor)
 
         var custo_de_desperdicio_a_investir = custo_mensal_desperdicisado * quantidade_despedicado_investido;
         var parte_do_valor_investido = custo_de_desperdicio_a_investir / 100;
 
-        //Formatação para real
-             var formt = new Intl.NumberFormat('pt-Br').format(aumento_faturado_valor);
-             var parte_do_valor_investido_formatado = new Intl.NumberFormat('pt-Br').format( parte_do_valor_investido);
-             var formatando_custo_mensal_desperdicisado = new Intl.NumberFormat('pt-Br').format(custo_mensal_desperdicisado);
-
-
         tempo_perdido.innerText = tempo_gasto_valor.toFixed(2);
         horas.innerText = divisao_horas_valor.toFixed();
-        custo_desperdicado.innerText =  formatando_custo_mensal_desperdicisado;
+        custo_desperdicado.innerText =  Math.round(custo_mensal_desperdicisado);
         quantidade_desperdicada.innerText = quantidade_despedicado_investido.toFixed(2);
-        economia_feita.innerText = economia_feita_valor.toFixed(1);
-        valor_investido.innerText = parte_do_valor_investido_formatado;
-        faturado.innerText = formt;
+        economia_feita.innerText = Math.round(economia_feita_valor);
+        valor_investido.innerText = parte_do_valor_investido.toFixed();
+        faturado.innerText = formato;
 
     }
 

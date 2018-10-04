@@ -20032,7 +20032,6 @@ background-color: #fcbc28;
 }
 
 .bootstrap-bar {
-
        width: 24%;
        height: 38px;
        padding: 10;
@@ -20164,7 +20163,7 @@ input[type=text] {
     }
 
     .bootstrap-bar {
-        width: 30%;
+        width: 60%;
         height: 38px;
         border: 1px solid #555;
         text-align: center;
