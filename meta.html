@@ -14,18 +14,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:title" content="[Simulador de Meta | Grátis] Tenha previsibilidade nas vendas">
-    <meta property="og:Description" content="O Simulador de Meta é uma ferramenta única e gratuita desenvolvida pelo Funil de Vendas. Ela te ajudará ter previsibilidade nos resultados para bater meta todo dia.">
+    <!--<meta property="og:Description" content="O Simulador de Meta é uma ferramenta única e gratuita desenvolvida pelo Funil de Vendas. Ela te ajudará ter previsibilidade nos resultados para bater meta todo dia."> -->
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://simulador.funildevendas.com.br/Simulador-Metas_Funil-de-Vendas.jpg">
+    <!--<meta property="og:image" content="https://simulador.funildevendas.com.br/Simulador-Metas_Funil-de-Vendas.jpg">
     <meta property="og:url" content="https://simulador.funildevendas.com.br/">
-
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,  minimal-ui">
     <meta content="O Simulador de Meta é uma ferramenta gratuita desenvolvida pelo Funil de Vendas. Ela te ajudará ter previsibilidade nos resultados para bater meta todo dia."
         name="description">
     <meta name="keywords" content="Simulador, Meta, método em vendas, metodo de vendas, simulador de meta, funil de vendas, simulador de funil, simulador de funil de vendas, planilha de meta,  meta de vendas, previsibilidade, previsibilidade nas vendas, taxa de conversão, Hit hates, funil de conversao, vender mais, indicadore de vendas, principais indicadores em vendas.">
 
-    <meta name="author" content="www.funildevendas.com.br">
-    <link rel="icon" type="image/png" sizes="16x16" href="http://simulador.funildevendas.com.br/plugins/images/Funil/Favicon@2x.ico">
+    <meta name="author" content="www.simuladordeDesperdicio.com.br">
+    <!--<link rel="icon" type="image/png" sizes="16x16" href="http://simulador.funildevendas.com.br/plugins/images/Funil/Favicon@2x.ico">
+    -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- link dos icones-->
 
     <title>Simulador de Meta :: Funil de Vendas™</title>
     <!-- Bootstrap Core CSS -->
@@ -92,11 +95,10 @@
         }
     </script> -->
 
-    <!-- <style>
+    <style>
         html{
                margin: 0;
                padding: 0;
-
             }
 
             @media only screen and (max-width: 480px) {
@@ -113,7 +115,7 @@
 
             }
 
-        </style> -->
+        </style> 
 
 </head>
 
@@ -302,8 +304,8 @@
                                     orçamentos por mês.
                                 </h2>
                                 <h2>Quanto a sua empresa faturou?
-                                    <input type="text" name="num9" required minlength="1" class="bootstrap-bar money"
-                                        id="faturamento_empresarial" style="font-size: 25px;">
+                                    <input type="text" name="num9" required minlength="1" class="bootstrap-bar bootstrapMoney money"
+                                        id="faturamento_empresarial" style="font-size: 23px; color: #8d9ea7;">
                                 </h2>
                             </div>
                         </div>
@@ -350,12 +352,12 @@
                                             <div class="row">
                                                 <h2>Qual o valor do prolabore (médio)?</h2>
                                                 <input type="text" required minlength="1" class="bootstrap-bar money"
-                                                    name="num10" id="valor_prolabore" style="font-size: 25px;">
+                                                    name="num10" id="valor_prolabore" style="font-size: 23px; color: #8d9ea7;">
                                             </div>
                                             <div class="row">
                                                 <h2>Horas trabalhadas por mês?</h2>
                                                 <input type="number" min="0" required minlength="1" class="bootstrap-bar"
-                                                    name="num" id="horas_trabalhadas" style="font-size: 25px">
+                                                    name="num" id="horas_trabalhadas" style="font-size: 23px; color: #8d9ea7;">
                                             </div>
                                         </div>
                                     </div>
@@ -420,32 +422,42 @@
                     <!-- FECHA pag.5 -->
 
                     <!-- <ABA> -->
-                    <div class="wizard-pane" role="tabpanel" aria-expanded="false">
-                        <h1 class="text-muted">Excelente... <strong>seus resultados estão prontos:</strong></h1>
-                        <div class="text-camp">
-                            <div class="corp">
-                                <h2>Percebemos que você gasta <strong id="tempo_perdido"></strong>% do seu tempo, ou
+<div class="wizard-pane" role="tabpanel" aria-expanded="false">
+
+        <h1 class="text-muted">Excelente... <strong>seus resultados estão prontos:</strong></h1>
+                <div class="text-camp">
+                            
+                    <div id="bottotrap1">
+                                    <h2>Percebemos que você gasta <strong id="tempo_perdido"></strong>% do seu tempo, ou
                                     seja,
                                     <strong id="horas"></strong>
-                                    horas resolvendo os problemas citados. Isso lhe custa mensalmente cerca de r$
+                                    horas resolvendo os problemas citados. </h2>
+
+                                    <img src="imagens/gif1.gif" width="40%" height="auto">
+                    </div>
+                                    
+                    <div id="bottotrap2">
+                                   <h2> Isso lhe custa mensalmente cerca de r$
                                     <strong id="custo_desperdicado"></strong>.</h2>
 
-                                <h2>Se deste valor desperdiçado você investir <strong id="quantidade_desperdicada"></strong>%,
+                                    <img src="imagens/gif2.gif" width="40%" height="auto">
+                    </div>
+
+
+                                    <h2>Se deste valor desperdiçado você investir <strong id="quantidade_desperdicada"></strong>%,
                                     isso é, r$
                                     <strong id="valor_investido"></strong>, ainda estaria economizando um total de
                                     <strong id="economia_feita"></strong>
-                                    reais e potencializaria a sua empresa aumentar o seu faturamento em r$ <strong id="faturado"></strong>
-                                </h2>
-                            </div>
+                                    reais e potencializaria a sua empresa aumentar o seu faturamento em r$ 
+                                    <strong id="faturado"></strong>
+                                    </h2>
+                            
 
 
                             <div id="link_but">
                                 <h2 style="font-weight: 600;">Gostaria de entender melhor Como pode chegar nestes
                                     resultados?</h2>
-                                <button class="button_resposta_sim">Sim</button>
-
-                            </div>
-
+                            <div>
                         </div>
                     </div>
 
@@ -457,7 +469,7 @@
                     data-fv-result="NOT_VALIDATED">Please enter a value with valid length</small>
                 <small style="display: none;" class="help-block" data-fv-validator="stringLength" data-fv-for="Qtd3"
                     data-fv-result="NOT_VALIDATED">Please enter a value with valid length</small>
-        </div>
+</div>
 
     </div>
     </div>

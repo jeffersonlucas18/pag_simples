@@ -106,8 +106,8 @@
             buttons: function() {
                 var options = this.options;
                 return '<div class="wizard-buttons">' +
-                    '<a class="wizard-back  btn btn-rounded btn-info waves-effect waves-light btn-rounded font-18 pull-left font-light" href="#testar#' + this.id + '" data-wizard="back" role="button"><span class="btn-label"><i class="ti-arrow-circle-left"></i></span>' + options.buttonLabels.back + '</i></a>' +
-                    '<a class="wizard-next btn btn-rounded btn-info waves-effect waves-light btn-rounded font-18 pull-right font-light" href="#testar#' + this.id + '" data-wizard="next" role="button"><span class="btn-label"><i class="ti-arrow-circle-right"></i></span>' + options.buttonLabels.next + '</i></a>' +
+                    '<a class="wizard-back  btn btn-rounded btn-info waves-effect waves-light btn-rounded font-18 pull-left font-light" href="#testar#' + this.id + '" data-wizard="back" role="button"><span class="btn-label"><i class="fa fa-arrow-circle-left"></i></span>' + options.buttonLabels.back + '</i></a>' +
+                    '<a class="wizard-next btn btn-rounded btn-info waves-effect waves-light btn-rounded font-18 pull-right font-light" href="#testar#' + this.id + '" data-wizard="next" role="button"><span class="btn-label"><i class="fa fa-arrow-circle-right"></i></span>' + options.buttonLabels.next + '</i></a>' +
                     
                     
                   
