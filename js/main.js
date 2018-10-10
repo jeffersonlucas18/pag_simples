@@ -171,7 +171,8 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
 
        // CALCULO PAGINA 5
-        var tempo_de_organizacao_em_media_e_minutos = parseInt(tempo_em_devolucao) + parseInt(perda_de_tempo_por_material_valor);
+        
+       var tempo_de_organizacao_em_media_e_minutos = parseInt(tempo_em_devolucao) + parseInt(perda_de_tempo_por_material_valor);
 
         // CALCULO FINAL
 
@@ -188,7 +189,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
 
         var aumento_faturado_valor =  empresa_faturada + (empresa_faturada * tempo_gasto_valor) / 1000; //B19
 
-        var formato = new Intl.NumberFormat('pt-BR').format(aumento_faturado_valor)
+        var formatacao_aumento_faturado_valor = new Intl.NumberFormat('pt-BR').format(aumento_faturado_valor)
 
         var custo_de_desperdicio_a_investir = custo_mensal_desperdicisado * quantidade_despedicado_investido;
         var parte_do_valor_investido = custo_de_desperdicio_a_investir / 100;
@@ -199,7 +200,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         quantidade_desperdicada.innerText = quantidade_despedicado_investido.toFixed(2);
         economia_feita.innerText = Math.round(economia_feita_valor);
         valor_investido.innerText = parte_do_valor_investido.toFixed();
-        faturado.innerText = formato;
+        faturado.innerText = formatacao_aumento_faturado_valor;
 
     }
 

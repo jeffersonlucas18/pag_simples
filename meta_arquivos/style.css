@@ -20264,19 +20264,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-
- body {
-     width: 100%;
-     font-family: Arial;
-     padding: 0;
-     margin: 0;
- }
  
  .box {
      width: 330px;
      height: auto;
      float: left;
- }
+}
  
  div#a-b-c {
      width: 1050px;
@@ -20291,8 +20284,6 @@ input[type=number]::-webkit-inner-spin-button {
      display: inline;
      font-size: 22px;
      line-height: 30px;
-
-
  }
  
  div#a-b-c p {
