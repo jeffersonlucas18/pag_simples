@@ -8,9 +8,8 @@ h4,
 h5,
 h6 {
     font-family: 'Raleway';
-    font-weight: 300
+    font-weight: 300;
 }
-
 
 
 .settings_box a,
@@ -20123,6 +20122,7 @@ input[type=text] {
    color: #5aeaf4;
 }
 
+
 .whatsapp:hover {
    color: #289622;
 }
@@ -20148,8 +20148,12 @@ input[type=text] {
          }
 
     .text-muted {
-        text-align: center;
-        margin-left: 25px;
+        width: 33%;
+        font-size: 24px;
+        line-height: 38px;
+        /* text-align: center; */
+        float: 20px;
+        /* float: unset; */
     }
 
     .text-white {
@@ -20251,13 +20255,8 @@ input[type=text] {
         position: relative;
         left: 500px;
     }
-}
-@media only screen and (max-width: 480px) {
-    h4.r-r-footer a{
-        position: relative;
-        margin-top: 20px;
-        }
-    }
+
+
 
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -20266,9 +20265,9 @@ input[type=number]::-webkit-inner-spin-button {
 
  
  .box {
-     width: 380px;
+     width: 330px;
      height: auto;
-     float: left;
+     float: left;   
 }
  
  div#a-b-c {
@@ -20281,18 +20280,20 @@ input[type=number]::-webkit-inner-spin-button {
  div#a-b-c h2 {
      font-family: Raleway;
      text-align: left;
-     display: inline;
+     display: inline; /* parte da tela pra não aparecer a branca */
      font-size: 22px;
      line-height: 30px;
  }
  
- div#a-b-c p {
+#a-b-c p {
  text-align: left;
  display: block;
 
  }
- /* Page final */
- 
+ .left {
+     margin-left: 30px;
+ }
+
  .text-muted {
      color: #8d9ea7;
  }
@@ -20301,11 +20302,47 @@ input[type=number]::-webkit-inner-spin-button {
     font-family: Roboto;
     font-weight: 500;
  }
- @media only screen and (max-width: 600px){
-    .box{
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        padding: 1em;
+
+
+ @media only screen and (max-width: 600px) {
+    .camp1{
+      box-sizing: border-box;
+       width: 100%;
+       position: relative;
     }
- }
+
+    .box {
+        width: 330px;
+        height: auto;
+        display: contents;
+        position: absolute;
+        float: right;
+   }
+
+   .left {
+     left: -30px;
+     top: 600px;
+   }
+
+   .p-b-30 {
+    padding-bottom: 680px; /* mexe com roda pé  */
+   }
+
+   #a-b-c h2 {
+       width: 20%;
+       line-height: 38px;
+       font-size: 12px;
+   }
+   
+   #text1 {
+       width: 100%;
+       height: auto;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+    h4.r-r-footer a{
+        position: relative;
+        margin-top: 20px;
+        }
+    }
