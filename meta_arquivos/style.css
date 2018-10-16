@@ -20280,9 +20280,9 @@ input[type=number]::-webkit-inner-spin-button {
  div#a-b-c h2 {
      font-family: Raleway;
      text-align: left;
-     display: inline; /* parte da tela pra não aparecer a branca */
+     /*! display: inline; */ /* parte da tela pra não aparecer a branca */
      font-size: 22px;
-     line-height: 30px;
+     line-height: 35px;
  }
  
 #a-b-c p {
@@ -20329,7 +20329,7 @@ input[type=number]::-webkit-inner-spin-button {
    }
 
    #a-b-c h2 {
-       width: 20%;
+       width: 30%;
        line-height: 38px;
        font-size: 12px;
    }
@@ -20338,6 +20338,11 @@ input[type=number]::-webkit-inner-spin-button {
        width: 100%;
        height: auto;
    }
+
+   .h4.r-r- a{
+            display: -webkit-inline-box;
+                    margin: 5px;
+                }
 }
 
 @media only screen and (max-width: 480px) {
@@ -20345,4 +20350,7 @@ input[type=number]::-webkit-inner-spin-button {
         position: relative;
         margin-top: 20px;
         }
+
+      
     }
+
