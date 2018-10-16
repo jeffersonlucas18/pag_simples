@@ -2,12 +2,22 @@
   display: none;
 }
 .wizard-pane {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   top: 0;
   visibility: hidden;
   transition: opacity 0.2s ease;
 }
+
+
+@media only screen and (max-width: 600px) {
+.wizard-pane {
+  position: fixed;
+}
+}
+
+
+
 .wizard-pane.active {
   position: relative;
   visibility: visible;

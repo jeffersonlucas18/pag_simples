@@ -85,6 +85,8 @@ html {
 
 * {
     outline: 0;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -20148,7 +20150,7 @@ input[type=text] {
          }
 
     .text-muted {
-        width: 33%;
+        width: 100%;
         font-size: 24px;
         line-height: 38px;
         /* text-align: center; */
@@ -20329,7 +20331,7 @@ input[type=number]::-webkit-inner-spin-button {
    }
 
    #a-b-c h2 {
-       width: 30%;
+       width: 20%;
        line-height: 38px;
        font-size: 12px;
    }
@@ -20343,6 +20345,10 @@ input[type=number]::-webkit-inner-spin-button {
             display: -webkit-inline-box;
                     margin: 5px;
                 }
+
+    #valor_prolabore {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -20351,6 +20357,9 @@ input[type=number]::-webkit-inner-spin-button {
         margin-top: 20px;
         }
 
-      
+        #a-b-c h2 {
+            width: 20%;
+            
+        }
     }
 
