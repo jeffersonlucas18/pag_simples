@@ -1,5 +1,20 @@
 
+var preencherDados = function() {
+    $('#nome').change(function(){
+        if(this.value === 'teste') {
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+            $('#email').val('teste@mail.com');
+        }
+    })
+}
+
 localStorage.clear();
+preencherDados();
 
 var pagina_atual = 0;
 
@@ -101,14 +116,11 @@ var tempo_ganho = document.getElementById('tempo_ganho');
     /* QUINTA PÁGINA */
     organizar_minuto_contrato.addEventListener("blur", function( event ) {
         localStorage.setItem('organizar_minuto_contrato', event.target.value)
-    })
+    });
 
     perda_de_tempo_por_material.addEventListener("blur", function( event ) {
         localStorage.setItem('perda_de_tempo_por_material', event.target.value)
-    })
-
-
-
+    });
 
     botao_next.addEventListener('click', function (e) {
 
@@ -202,41 +214,30 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         valor_investido.innerText = parte_do_valor_investido.toFixed();
         faturado.innerText = formatacao_aumento_faturado_valor;
 
+        const data = {
+            1820289217: localStorage.getItem('nome'),
+            2047821647: localStorage.getItem('email'),
+            1000049728: localStorage.getItem('empresa'),        
+            2009000330: localStorage.getItem('tempo_medio'),
+            1020183055: localStorage.getItem('quantidade_orcamento'),
+            1445286880: localStorage.getItem('faturamento_empresarial'),
+            1764189169: localStorage.getItem('perguntas_semana'),
+            2008025762: localStorage.getItem('res_perguntas'), 
+            1909001603: localStorage.getItem('verificacao_por_minuto'),
+            1526918565: localStorage.getItem('duracao_para_organizar'),
+            399523795:  localStorage.getItem('valor_prolabore'),
+            1774799188:  localStorage.getItem('horas_trabalhadas'),
+            1909001603:  localStorage.getItem('quantidade_minutos'),
+            1052932838: localStorage.getItem('organizar_minuto_contrato'),
+            1211500455: localStorage.getItem('perda_de_tempo_por_material')        
+        }
 
         $.ajax({
             method: "POST",
             url: "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/formResponse",
-            data: { 
-                
-                entry.1820289217: localStorage.getItem('nome');
-                entry.2047821647: localStorage.getItem('email');
-                entry.1000049728: localStorage.getItem('empresa');
-               
-                entry.2009000330: localStorage.getItem('tempo_medio');
-                entry.1020183055: localStorage.getItem('quantidade_orcamento');
-                entry.1445286880: localStorage.getItem('faturamento_empresarial');
-                entry.1764189169: localStorage.getItem('perguntas_semana');
-                entry.2008025762: localStorage.getItem('res_perguntas'); 
-                
-                entry.1909001603: localStorage.getItem('verificacao_por_minuto');
-                entry.1526918565: localStorage.getItem('duracao_para_organizar');
-                entry.399523795:  localStorage.getItem('valor_prolabore');
-                entry.1774799188:  localStorage.getItem('horas_trabalhadas');
-
-                entry.1909001603:  localStorage.getItem('quantidade_minutos');
-                
-                entry.1052932838: localStorage.getItem('organizar_minuto_contrato');
-                entry.1211500455: localStorage.getItem('perda_de_tempo_por_material');
-
-
-
-
-             }
-             
+            data: data,
+            crossDomain: true           
         })
-
-
-
     }
 
 })
