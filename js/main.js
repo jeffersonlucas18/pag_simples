@@ -1,20 +1,20 @@
 
-var preencherDados = function() {
-    $('#nome').change(function(){
-        if(this.value === 'teste') {
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-        }
-    })
-}
+// var preencherDados = function() {
+//     $('#nome').change(function(){
+//         if(this.value === 'teste') {
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//         }
+//     })
+// }
 
 localStorage.clear();
-preencherDados();
+// preencherDados();
 
 var pagina_atual = 0;
 
@@ -214,6 +214,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         valor_investido.innerText = parte_do_valor_investido.toFixed();
         faturado.innerText = formatacao_aumento_faturado_valor;
 
+<<<<<<< HEAD
         $.ajax({
             method: "POST",
             url: "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/formResponse",
@@ -241,6 +242,53 @@ var tempo_ganho = document.getElementById('tempo_ganho');
              }
              
         })
+=======
+        const contagem = {
+            1820289217: localStorage.getItem('nome'),
+            2047821647: localStorage.getItem('email'),
+            1000049728: localStorage.getItem('empresa'),        
+            2009000330: localStorage.getItem('tempo_medio'),
+            1020183055: localStorage.getItem('quantidade_orcamento'),
+            1445286880: localStorage.getItem('faturamento_empresarial'),
+            1764189169: localStorage.getItem('perguntas_semana'),
+            2008025762: localStorage.getItem('res_perguntas'), 
+            1909001603: localStorage.getItem('verificacao_por_minuto'),
+            1526918565: localStorage.getItem('duracao_para_organizar'),
+            399523795:  localStorage.getItem('valor_prolabore'),
+            1774799188:  localStorage.getItem('horas_trabalhadas'),
+            1909001603:  localStorage.getItem('quantidade_minutos'),
+            1052932838: localStorage.getItem('organizar_minuto_contrato'),
+            1211500455: localStorage.getItem('perda_de_tempo_por_material')        
+        }
+
+       window.GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/viewform?usp=sf_link";
+           
+            var output;
+            //Ajax post data to server
+            $.ajax({
+                url: GOOGLE_FORM_URL,
+                type: "POST",
+                crossDomain: true,
+                data: contagem,
+                dataType: 'json',
+                accepts: "text/html; charset=utf-8",
+                success: function (response) {
+                    console.log(response);
+                    // if (response.type == 'error') {
+                    //     output = '<div class="error">' + response.text + '</div>';
+                    // } else {
+                    //     window.location.href = REDIRECT_TO;
+                    // }
+                },
+                error: function (xhr, status) {
+                    console.log(xhr,status);
+                    // var msg = "Desculpe! Ocorreu um erro inesperado."
+                    // output = '<div class="error">' + msg + '</div>';
+                    // $(theform).find('#result').hide().html(output).slideDown();
+                }
+            });
+
+>>>>>>> 8c56ca427907afb408ef9ac13f343f46613bb20f
     }
 
 })
