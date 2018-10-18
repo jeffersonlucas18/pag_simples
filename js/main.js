@@ -1,20 +1,20 @@
 
-var preencherDados = function() {
-    $('#nome').change(function(){
-        if(this.value === 'teste') {
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-            $('#email').val('teste@mail.com');
-        }
-    })
-}
+// var preencherDados = function() {
+//     $('#nome').change(function(){
+//         if(this.value === 'teste') {
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//             $('#email').val('teste@mail.com');
+//         }
+//     })
+// }
 
 localStorage.clear();
-preencherDados();
+// preencherDados();
 
 var pagina_atual = 0;
 
@@ -214,7 +214,7 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         valor_investido.innerText = parte_do_valor_investido.toFixed();
         faturado.innerText = formatacao_aumento_faturado_valor;
 
-        const data = {
+        const contagem = {
             1820289217: localStorage.getItem('nome'),
             2047821647: localStorage.getItem('email'),
             1000049728: localStorage.getItem('empresa'),        
@@ -232,12 +232,33 @@ var tempo_ganho = document.getElementById('tempo_ganho');
             1211500455: localStorage.getItem('perda_de_tempo_por_material')        
         }
 
-        $.ajax({
-            method: "POST",
-            url: "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/formResponse",
-            data: data,
-            crossDomain: true           
-        })
+       window.GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/viewform?usp=sf_link";
+           
+            var output;
+            //Ajax post data to server
+            $.ajax({
+                url: GOOGLE_FORM_URL,
+                type: "POST",
+                crossDomain: true,
+                data: contagem,
+                dataType: 'json',
+                accepts: "text/html; charset=utf-8",
+                success: function (response) {
+                    console.log(response);
+                    // if (response.type == 'error') {
+                    //     output = '<div class="error">' + response.text + '</div>';
+                    // } else {
+                    //     window.location.href = REDIRECT_TO;
+                    // }
+                },
+                error: function (xhr, status) {
+                    console.log(xhr,status);
+                    // var msg = "Desculpe! Ocorreu um erro inesperado."
+                    // output = '<div class="error">' + msg + '</div>';
+                    // $(theform).find('#result').hide().html(output).slideDown();
+                }
+            });
+
     }
 
 })
