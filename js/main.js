@@ -214,28 +214,9 @@ var tempo_ganho = document.getElementById('tempo_ganho');
         valor_investido.innerText = parte_do_valor_investido.toFixed();
         faturado.innerText = formatacao_aumento_faturado_valor;
 
-        const data = {
-            1820289217: localStorage.getItem('nome'),
-            2047821647: localStorage.getItem('email'),
-            1000049728: localStorage.getItem('empresa'),        
-            2009000330: localStorage.getItem('tempo_medio'),
-            1020183055: localStorage.getItem('quantidade_orcamento'),
-            1445286880: localStorage.getItem('faturamento_empresarial'),
-            1764189169: localStorage.getItem('perguntas_semana'),
-            2008025762: localStorage.getItem('res_perguntas'), 
-            1909001603: localStorage.getItem('verificacao_por_minuto'),
-            1526918565: localStorage.getItem('duracao_para_organizar'),
-            399523795:  localStorage.getItem('valor_prolabore'),
-            1774799188:  localStorage.getItem('horas_trabalhadas'),
-            1909001603:  localStorage.getItem('quantidade_minutos'),
-            1052932838: localStorage.getItem('organizar_minuto_contrato'),
-            1211500455: localStorage.getItem('perda_de_tempo_por_material')        
-        }
-
         $.ajax({
             method: "POST",
             url: "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/formResponse",
-<<<<<<< HEAD
             data: { 
                 
                 1820289217: localStorage.getItem('nome'),
@@ -257,16 +238,8 @@ var tempo_ganho = document.getElementById('tempo_ganho');
                 
                 1052932838: localStorage.getItem('organizar_minuto_contrato'),
                 1211500455: localStorage.getItem('perda_de_tempo_por_material'),
-
-
-
-
              }
              
-=======
-            data: data,
-            crossDomain: true           
->>>>>>> 7ca491af7b3c17f8255cd1560af70b609938970c
         })
     }
 
