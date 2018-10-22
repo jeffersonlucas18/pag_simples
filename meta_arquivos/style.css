@@ -20346,9 +20346,7 @@ input[type=number]::-webkit-inner-spin-button {
                     margin: 5px;
                 }
 
-    #valor_prolabore {
-        width: 50%;
-    }
+   
 }
 
 @media only screen and (max-width: 480px) {
