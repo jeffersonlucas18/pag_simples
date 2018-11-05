@@ -210,7 +210,7 @@ botao_next.addEventListener('click', function (e) {
             2008025762: localStorage.getItem('res_perguntas'),
             1909001603: localStorage.getItem('verificacao_por_minuto'),
             1526918565: localStorage.getItem('duracao_para_organizar'),
-            399523795: localStorage.getItem('valor_prolabore'),
+             399523795: localStorage.getItem('valor_prolabore'),
             1774799188: localStorage.getItem('horas_trabalhadas'),
             1909001603: localStorage.getItem('quantidade_minutos'),
             1052932838: localStorage.getItem('organizar_minuto_contrato'),
@@ -218,15 +218,15 @@ botao_next.addEventListener('click', function (e) {
         }
 
         window.GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdNG_JKUBFG1doIWTLMCXOUuckM3jXGgutL_2qQbWV_9sm3Qw/viewform?usp=sf_link";
-       var requeste = $.ajax({
+        var requeste = $.ajax({
             url: window.GOOGLE_FORM_URL,
             type: "POST",
             crossDomain: true,
             data: contagem,
-            dataType: 'json',
+            dataType: 'XML',
             accepts: "text/html; charset=utf-8",
             success: function (response) {
-                console.log(response);
+                alert("Enviado" + response);
             },
             error: function (xhr, status) {
                 console.log(xhr, status);
